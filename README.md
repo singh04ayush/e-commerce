@@ -1,7 +1,6 @@
 <div align="center">
 
-<img src="![logo](https://github.com/user-attachments/assets/41cf54a7-0240-425c-bccc-1fc49933a362)
-" alt="Gaming E-commerce Logo" width="180"/>
+<img src="frontend/public/logo.png" alt="Gaming E-commerce Logo" width="180"/>
 
 # 🎮 Gameify - Your Ultimate Gaming Store 🎮
 
@@ -37,6 +36,7 @@
 
 </div>
 
+<!--
 ## 📝 License
 
 <div align="center">
@@ -47,6 +47,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 </div>
 
+-->
+
 ## 🙏 Acknowledgments
 
 <div align="center">
@@ -56,6 +58,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 | [Heroicons](https://heroicons.com/) | Beautiful icons |
 | [TailwindCSS](https://tailwindcss.com/) | Utility-first CSS framework |
 | [React Community](https://reactjs.org/community) | Amazing React ecosystem |
+
+</div>
+
+<div align="center"> 
+  
+   ### Contributed with ❤️ by [singh04ayush] 
 
 </div>
 
