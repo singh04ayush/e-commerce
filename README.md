@@ -18,7 +18,7 @@
 - 🚀 **Fast Checkout**: Optimized for seamless payments
 - 📱 **Responsive Design**: Works on all devices
 - 🎁 **Exclusive Deals**: Best discounts on top games
-- 💡 **AI Recommendations**: Personalized game suggestions
+
 
 ## 🛠️ Tech Stack
 
