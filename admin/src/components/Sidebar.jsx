@@ -23,7 +23,7 @@ const Sidebar = () => {
             <p className='hidden md:block'>Orders</p>
         </NavLink>
 
-      </div>
+      </div> 
 
     </div>
   )

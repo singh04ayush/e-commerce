@@ -12,14 +12,15 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const onSubmitHandler = async (event) => {
+  const onSubmitHandler = async (event) => { 
     event.preventDefault();
     try {
 
-      if (currentState === 'Signup') {
+      if (currentState === 'Sign Up') {
 
         const response = await axios.post(backendUrl + '/api/user/register', { name, email, password });
-        if (response.data.succes) {
+        
+        if (response.data.success) {
           setToken(response.data.token)
           localStorage.setItem('token', response.data.token)
         } else {
@@ -29,6 +30,7 @@ const Login = () => {
       } else {
 
         const response = await axios.post(backendUrl + '/api/user/login', { email, password });
+        
         if (response.data.success) {
           setToken(response.data.token);
           localStorage.setItem('token', response.data.token)
@@ -63,7 +65,7 @@ const Login = () => {
         <p className='cursor-pointer'>Forgot your password?</p>
         {
           currentState === 'Login'
-            ? <p onClick={() => setCurrentState('Sing Up')} className='cursor-pointer'>Create Account</p>
+            ? <p onClick={() => setCurrentState('Signup')} className='cursor-pointer'>Create Account</p>
             : <p onClick={() => setCurrentState('Login')} className='cursor-pointer'>Login Here</p>
         }
       </div>
