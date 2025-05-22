@@ -2,7 +2,7 @@
 
 <img src="frontend/public/logo.png" alt="Gaming E-commerce Logo" width="180"/>
 
-# 🎮 Gameify - Your Ultimate Gaming Store 🎮
+# 🎮 Stylify - Your Ultimate Gaming Store 🎮
 
 > 🕹️ Where Gaming Meets Technology
 
