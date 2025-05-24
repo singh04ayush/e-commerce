@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="frontend/public/logo.png" alt="Gaming E-commerce Logo" width="180"/>
+<img src="frontend/public/logo.png" alt="Fashion E-commerce Logo" width="180"/>
 
-# 🎮 Stylify - Your Ultimate Gaming Store 🎮
+# 🛍️ **Stylify - Your Ultimate Clothing Store** 🛍️  
 
-> 🕹️ Where Gaming Meets Technology
+> **Where Fashion Meets Technology**  
 
 [![React](https://img.shields.io/badge/React-19.0.0-61DAFB?style=for-the-badge&logo=react&logoColor=white&labelColor=20232A)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-6.2.0-646CFF?style=for-the-badge&logo=vite&logoColor=white&labelColor=20232A)](https://vitejs.dev/)
@@ -13,11 +13,12 @@
 
 </div>
 
-## ✨ Features
-
-- 🚀 **Fast Checkout**: Optimized for seamless payments
-- 📱 **Responsive Design**: Works on all devices
-- 🎁 **Exclusive Deals**: Best discounts on top games
+## ✨ **Features**
+- 💨 **Fast Checkout** – Seamless payments for hassle-free shopping  
+- 📱 **Responsive Design** – Works across all devices  
+- 👕 **Curated Fashion Collections** – Trending styles for men, women, and kids  
+- 🔄 **Easy Returns & Size Guide** – Customer-friendly policies  
+- 🎁 **Exclusive Deals** – Get the best discounts on stylish outfits 
 
 
 ## 🛠️ Tech Stack
