@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="frontend/public/logo.png" alt="Fashion E-commerce Logo" width="180"/>
-
 # 🛍️ **Stylify - Your Ultimate Clothing Store** 🛍️  
 
 > **Where Fashion Meets Technology**  
