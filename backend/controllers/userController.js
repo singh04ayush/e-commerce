@@ -46,6 +46,7 @@ const registerUser = async (req, res) => {
     try {
 
         const { name, email, password } = req.body;
+        console.log(name , email, password);
 
         // Checking user already exist or not
         const exists = await userModel.findOne({ email });
@@ -111,4 +112,61 @@ const adminLogin = async (req, res) => {
 
 
 
-export { loginUser, registerUser, adminLogin }
+// Get user profile information
+const getUserProfile = async (req, res) => {
+    try {
+        const { userId } = req.body;
+        
+        const user = await userModel.findById(userId);
+        if (!user) {
+            return res.json({ success: false, message: "User not found" });
+        }
+        
+        // Return user data without password
+        const userData = {
+            name: user.name,
+            email: user.email,
+            billingInfo: user.billingInfo || {}
+        };
+        
+        res.json({ success: true, user: userData });
+        
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error.message });
+    }
+};
+
+// Update user profile information
+const updateUserProfile = async (req, res) => {
+    try {
+        const { userId, name, billingInfo } = req.body;
+        
+        const user = await userModel.findById(userId);
+        if (!user) {
+            return res.json({ success: false, message: "User not found" });
+        }
+        
+        // Update user data
+        if (name) user.name = name;
+        if (billingInfo) user.billingInfo = billingInfo;
+        
+        await user.save();
+        
+        res.json({ 
+            success: true, 
+            message: "Profile updated successfully",
+            user: {
+                name: user.name,
+                email: user.email,
+                billingInfo: user.billingInfo
+            }
+        });
+        
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error.message });
+    }
+};
+
+export { loginUser, registerUser, adminLogin, getUserProfile, updateUserProfile }
