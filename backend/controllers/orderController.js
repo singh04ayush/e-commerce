@@ -1,6 +1,7 @@
+
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js";
-
+import crypto from 'crypto';
 
 // Placing using COD
 
@@ -9,14 +10,29 @@ const placeOrder = async (req, res) =>{
         
         const { userId, items, amount, address } = req.body;
         
+        // Generate a unique OrderID using crypto
+        const orderId = crypto.randomBytes(12).toString('hex').toUpperCase();
+        
+        // Generate game keys for each item
+        const gameKeys = {};
+        items.forEach(item => {
+            // Generate a unique game key for each item
+            const gameKey = `${item.platform}-${crypto.randomBytes(8).toString('hex').toUpperCase()}`;
+            // Use item._id and platform as the key
+            const itemKey = `${item._id}-${item.platform}`;
+            gameKeys[itemKey] = gameKey;
+        });
+        
         const orderData = {
+            orderId,
             userId,
             items,
             address,
             amount,
             paymentMethod: "COD",
             payment: false,
-            date: Date.now()
+            date: Date.now(),
+            gameKeys
         }
 
         const newOrder = new orderModel(orderData);
@@ -24,7 +40,7 @@ const placeOrder = async (req, res) =>{
 
         await userModel.findByIdAndUpdate(userId, {cartData: {}});
 
-        res.json({success: true, message: "Order Placed"})
+        res.json({success: true, message: "Order Placed", orderId})
 
     } catch (error) {
         console.log(error);
@@ -75,7 +91,25 @@ const userOrders = async (req, res) => {
         
         const { userId } = req.body;
         const orders = await orderModel.find({ userId });
-        res.json({success: true, orders});
+        
+        // Process orders to include orderId and gameKeys with each item
+        const processedOrders = orders.map(order => {
+            const orderObj = order.toObject();
+            // Add orderId to each item in the order
+            orderObj.items = orderObj.items.map(item => {
+                // Add orderId to the item
+                item.orderId = orderObj.orderId;
+                // Add game key to the item if it exists
+                const itemKey = `${item._id}-${item.platform}`;
+                if (orderObj.gameKeys && orderObj.gameKeys[itemKey]) {
+                    item.gameKey = orderObj.gameKeys[itemKey];
+                }
+                return item;
+            });
+            return orderObj;
+        });
+        
+        res.json({success: true, orders: processedOrders});
 
     } catch (error) {
         console.log(error);
