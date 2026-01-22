@@ -62,7 +62,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center"> 
   
-   ### Contributed with ❤️ by [singh04ayush] 
+   ### Contributed with ❤️ by [singh04ayush] JAN 2026
 
 </div>
 
